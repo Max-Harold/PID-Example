@@ -18,6 +18,6 @@ public class Motor extends SubsystemBase {
    }
    // returns relative motor angle (in degrees)
    public double getTheta() {
-      return 360.0 * Constants.TICKS / ( motor.getSelectedSensorPosition() % Constants.TICKS );
+      return 360.0 * ( motor.getSelectedSensorPosition() % Constants.TICKS ) / Constants.TICKS;
    }
 }
