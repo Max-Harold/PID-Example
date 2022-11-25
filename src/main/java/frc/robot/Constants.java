@@ -19,7 +19,7 @@ public final class Constants {
    // Motor ID 
    public static final int MOTOR_ID = 0;
 
-   // PID constants 
+   // PID constants (need to be tuned, of course)
    public static final int kP = 0;
    public static final int kI = 0;                          
    public static final int kD = 0;

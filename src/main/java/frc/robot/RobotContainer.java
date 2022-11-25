@@ -7,9 +7,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.RunMotorAngle;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Motor;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -18,7 +20,7 @@ import edu.wpi.first.wpilibj2.command.Command;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
+  // The motor and Xbox Controller
   private Motor m_motor;
   private XboxController controller;
 
@@ -36,7 +38,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
+  // Binds the motor PID command to the A button
   private void configureButtonBindings() {
+    new JoystickButton(controller, XboxController.Button.kA.value).whileHeld(new RunMotorAngle(m_motor, 90));
   }
 
   /**
